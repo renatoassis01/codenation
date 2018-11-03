@@ -12,33 +12,34 @@ func main() {
 	_ = githubStars("go")
 }
 
+type items struct {
+	Name        string `json:"full_name"`
+	Description string `json:"description"`
+	URL         string `json:"html_url"`
+	Stars       int    `json:"stargazers_count"`
+}
 type respositorio struct {
-	Items []struct {
-		Name        string `json:"full_name"`
-		Description string `json:"description"`
-		URL         string `json:"url"`
-		Stars       int    `json:"stargazers_count"`
-	} `json:"items"`
+	Items []items `json:"items"`
 }
-
-
-
-
-
-
-type itemsJSON struct {
-	Name        string
-	Description string
-	URL         string
-	Stars       int
-}
-
-
 
 func writeFileJSON(caminho string, s []byte) {
 	var identJSON bytes.Buffer
 	_ = json.Indent(&identJSON, s, "", "\t")
 	ioutil.WriteFile(caminho, identJSON.Bytes(), 0644)
+}
+
+func (r *items) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&struct {
+		Name        string `json:"name"`
+		Description string `json:"description"`
+		URL         string `json:"url"`
+		Stars       int    `json:"stars"`
+	}{
+		Name:        r.Name,
+		Description: r.Description,
+		URL:         r.URL,
+		Stars:       r.Stars,
+	})
 }
 
 func githubStars(lang string) error {
@@ -53,16 +54,7 @@ func githubStars(lang string) error {
 	}
 	var repos = respositorio{}
 	json.Unmarshal(body, &repos)
-	var items = make([]itemsJSON, 0, 10)
-	for index := 0; index < len(repos.Items); index++ {
-		i := itemsJSON{}
-		i.Stars = repos.Items[index].Stars
-		i.Description = repos.Items[index].Description
-		i.Name = repos.Items[index].Name
-		i.URL = repos.Items[index].URL
-		items = append(items, i)
-	}
-	r, _ := json.Marshal(items)
+	r, _ := json.Marshal(repos.Items)
 	writeFileJSON("stars.json", r)
 	return nil
 }
