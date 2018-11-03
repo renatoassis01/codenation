@@ -1,0 +1,22 @@
+[
+	{
+		"name": "./.",
+		"path": "././"
+	},
+	{
+		"name": "./README.md",
+		"path": "./"
+	},
+	{
+		"name": "./files.json",
+		"path": "./"
+	},
+	{
+		"name": "./main.go",
+		"path": "./"
+	},
+	{
+		"name": "./main_test.go",
+		"path": "./"
+	}
+]

@@ -1,0 +1,62 @@
+[
+	{
+		"Name": "moby/moby",
+		"Description": "Moby Project - a collaborative project for the container ecosystem to assemble container-based systems",
+		"URL": "https://api.github.com/repos/moby/moby",
+		"Stars": 50931
+	},
+	{
+		"Name": "golang/go",
+		"Description": "The Go programming language",
+		"URL": "https://api.github.com/repos/golang/go",
+		"Stars": 48716
+	},
+	{
+		"Name": "kubernetes/kubernetes",
+		"Description": "Production-Grade Container Scheduling and Management",
+		"URL": "https://api.github.com/repos/kubernetes/kubernetes",
+		"Stars": 43351
+	},
+	{
+		"Name": "getlantern/lantern",
+		"Description": "🔴蓝灯最新版本下载 https://github.com/getlantern/download 🔴 Lantern Latest Download https://github.com/getlantern/download 🔴",
+		"URL": "https://api.github.com/repos/getlantern/lantern",
+		"Stars": 38311
+	},
+	{
+		"Name": "avelino/awesome-go",
+		"Description": "A curated list of awesome Go frameworks, libraries and software",
+		"URL": "https://api.github.com/repos/avelino/awesome-go",
+		"Stars": 36673
+	},
+	{
+		"Name": "gohugoio/hugo",
+		"Description": "The world’s fastest framework for building websites.",
+		"URL": "https://api.github.com/repos/gohugoio/hugo",
+		"Stars": 29984
+	},
+	{
+		"Name": "gogs/gogs",
+		"Description": "Gogs is a painless self-hosted Git service.",
+		"URL": "https://api.github.com/repos/gogs/gogs",
+		"Stars": 27677
+	},
+	{
+		"Name": "astaxie/build-web-application-with-golang",
+		"Description": "A golang ebook intro how to build a web with golang",
+		"URL": "https://api.github.com/repos/astaxie/build-web-application-with-golang",
+		"Stars": 25936
+	},
+	{
+		"Name": "syncthing/syncthing",
+		"Description": "Open Source Continuous File Synchronization",
+		"URL": "https://api.github.com/repos/syncthing/syncthing",
+		"Stars": 22618
+	},
+	{
+		"Name": "gin-gonic/gin",
+		"Description": "Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin.",
+		"URL": "https://api.github.com/repos/gin-gonic/gin",
+		"Stars": 21608
+	}
+]
