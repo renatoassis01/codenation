@@ -29,6 +29,7 @@ func writeFileJSON(caminho string, s []byte) {
 }
 
 func (r *items) MarshalJSON() ([]byte, error) {
+	//http://choly.ca/post/go-json-marshalling/
 	return json.Marshal(&struct {
 		Name        string `json:"name"`
 		Description string `json:"description"`
