@@ -55,13 +55,13 @@ func escapaLetras(n int) bool {
 	}
 
 }
-func criptografa(s string, salto byte) string {
+func criptografa(s string, deslocamento byte) string {
 	v := []byte(strings.ToLower(s))
 	for i := 0; i < len(v); i++ {
 		if ok := escapaLetras(int(v[i])); ok {
 
 		} else {
-			v[i] = v[i] + salto
+			v[i] = v[i] + deslocamento
 		}
 
 	}
@@ -69,12 +69,12 @@ func criptografa(s string, salto byte) string {
 	return string(v)
 
 }
-func descriptografa(s string, salto byte) string {
+func descriptografa(s string, deslocamento byte) string {
 	v := []byte(strings.ToLower(s))
 	for i := 0; i < len(v); i++ {
 		if ok := escapaLetras(int(v[i])); ok {
 		} else {
-			v[i] = v[i] - salto
+			v[i] = v[i] - deslocamento
 		}
 
 	}
