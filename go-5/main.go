@@ -70,7 +70,7 @@ func criptografa(s string, salto byte) string {
 
 }
 func descriptografa(s string, salto byte) string {
-	v := []byte(s)
+	v := []byte(strings.ToLower(s))
 	for i := 0; i < len(v); i++ {
 		if ok := escapaLetras(int(v[i])); ok {
 		} else {
@@ -122,10 +122,9 @@ func get() answer {
 
 func main() {
 	j := get()
-	v := descriptografa(j.Cifrado, j.NumeroCasas)
-	j.Decifrado = v
+	j.Decifrado = descriptografa(j.Cifrado, j.NumeroCasas)
 	h := sha1.New()
-	h.Write([]byte(strings.ToLower(v)))
+	h.Write([]byte(j.Decifrado))
 	sha := h.Sum(nil)
 	j.ResumoCriptografico = hex.EncodeToString(sha)
 	r, _ := json.Marshal(j)
