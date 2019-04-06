@@ -6,6 +6,7 @@ import requests
 
 alfabeto = list(string.ascii_lowercase)
 
+
 def get_token():
     return "48c62d18afa2e20201ff6c7f6130857ba7f6a5f1"
 
@@ -45,19 +46,19 @@ def criptografa(texto, deslocamento):
             elementos[k] = chr(letra + deslocamento)
     return "".join(elementos)
 
+
 def criptografa2(texto, deslocamento):
     elementos = list(texto.lower())
-    cifrado = ''
-    
+    cifrado = ""
+
     for v in elementos:
         if espaceLetra(ord(v)):
             cifrado += v
         else:
-             indice  =  alfabeto.index(v) 
-             if (indice + deslocamento) % 26 > 0 and (indice + deslocamento) % 26 < 25:
-                c=(indice + deslocamento) % 26
+            indice = alfabeto.index(v)
+            if (indice + deslocamento) % 26 > 0 and (indice + deslocamento) % 26 < 25:
+                c = (indice + deslocamento) % 26
                 cifrado += alfabeto[c]
-                        
 
 
 def descriptografa(texto, deslocamento):
@@ -70,21 +71,21 @@ def descriptografa(texto, deslocamento):
             elementos[k] = chr((letra - deslocamento))
     return "".join(elementos)
 
+
 def descriptografa2(texto, deslocamento):
     elementos = list(texto.lower())
-    decifrado = ''
-    
+    decifrado = ""
+
     for v in elementos:
         if espaceLetra(ord(v)):
             decifrado += v
         else:
-             indice  =  alfabeto.index(v) 
-             if (indice + deslocamento) % 26 > 0 and (indice + deslocamento) % 26 < 25:
-                c=(indice - deslocamento) % 26
+            indice = alfabeto.index(v)
+            if (indice + deslocamento) % 26 > 0 and (indice + deslocamento) % 26 < 25:
+                c = (indice - deslocamento) % 26
                 decifrado += alfabeto[c]
-                        
-    return decifrado
 
+    return decifrado
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"math"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -31,6 +32,77 @@ func writeFileJSON(caminho string, s []byte) {
 	_ = json.Indent(&identJSON, s, "", "\t")
 	ioutil.WriteFile(caminho, identJSON.Bytes(), 0644)
 }
+
+func alfabeto(n string) int {
+
+	alfa := map[string]int{
+
+		"a": 0,
+		"b": 1,
+		"c": 2,
+		"d": 3,
+		"e": 4,
+		"f": 5,
+		"g": 6,
+		"h": 7,
+		"i": 8,
+		"j": 9,
+		"k": 10,
+		"l": 11,
+		"m": 12,
+		"n": 13,
+		"o": 14,
+		"p": 15,
+		"q": 16,
+		"r": 17,
+		"s": 18,
+		"t": 19,
+		"u": 20,
+		"v": 21,
+		"w": 22,
+		"x": 23,
+		"y": 24,
+		"z": 25,
+	}
+
+	return alfa[n]
+}
+
+func alfabetoB(n int) int {
+
+	alfa := map[int]string{
+
+		: 0:"a" ,
+		"b": 1: ,
+		"c": 2: ,
+		"d": 3:,
+		"e": 4:,
+		"f": 5:,
+		"g": 6:,
+		"h": 7:,
+		"i": 8:,
+		"j": 9:,
+		"k": 10:,
+		"l": 11:,
+		"m": 12:,
+		"n": 13:,
+		"o": 14:,
+		"p": 15:,
+		"q": 16:,
+		"r": 17:,
+		"s": 18:,
+		"t": 19:,
+		"u": 20:,
+		"v": 21:,
+		"w": 22:,
+		"x": 23:,
+		"y": 24:,
+		"z": 25:,
+	}
+
+	return alfa[n]
+}
+
 
 func escapaLetras(n int) bool {
 
@@ -82,6 +154,32 @@ func descriptografa(s string, deslocamento byte) string {
 	return string(v)
 
 }
+
+func descriptografa2(cifrado string, deslocamento int) string {
+	v := strings.ToLower(cifrado)
+	decifrado := ""
+
+	for i := 0; i < len(v); i++ {
+
+		s := fmt.Sprintf("%c", v[i])
+		if ok := escapaLetras(int(v[i])); ok {
+			decifrado := fmt.Sprintf("%s%s", decifrado, s)
+		} else {
+			indice := float64(alfabeto(s))
+
+			if int(math.Mod((indice+float64(deslocamento)), 26)) > 0 && int(math.Mod((indice+float64(deslocamento)), 26)) < 25 {
+				c := int(math.Mod((indice - float64(deslocamento)), 26))
+				decifrado += alfabeto(c)
+			}
+
+		}
+
+	}
+
+	return decifrado
+
+}
+
 func PostDados(arquivo, url string) {
 	file, _ := os.Open(arquivo)
 	defer file.Close()
