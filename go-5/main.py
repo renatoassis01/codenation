@@ -81,8 +81,9 @@ def descriptografa2(texto, deslocamento):
            decifrado += v
         else:
             indice = alfabeto.index(v)
-            c = abs((indice - deslocamento)) % 26
-            decifrado += alfabeto[c]
+            if (indice + deslocamento) % 26 > 0 and (indice + deslocamento) % 26 < 25:
+               c = abs((indice - deslocamento)) % 26
+               decifrado += alfabeto[c]
 
     return decifrado
 
